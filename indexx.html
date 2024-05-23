@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOP SONG GENERATOR</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
    <h1>TOP SONG GENERATOR </h1>
       <h4>Welcome to our <i>Top Song Generator </i> webiste, it's very simple </h4>
+      
       <h4>   in the search bar enter your favorite artist. And we will expand on thier top songs </h4>
-      <input type="text" placeholder="Search the artisst ..">
+      
+      <input type="text" id="artistInput" placeholder="Enter artist name" />
+        <button id="searchButton">Search</button>
+       <div id="result"></div>
 </head>
 <body>
     

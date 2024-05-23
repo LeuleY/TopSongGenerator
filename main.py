@@ -32,9 +32,12 @@ def get_auth_header(token):
     return {"Authorization": "Bearer " + token}
 
 def search_for_artist(token, artist_name):
+    
     url = "https://api.spotify.com/v1/search"
     headers = get_auth_header(token)
     query = f"?q={artist_name}&type=artist&limit=1"
+    
+    
 
     query_url = url + query
     result = get(query_url, headers=headers)
@@ -54,11 +57,20 @@ def get_songs_by_artist(token, artist_id):
     return json_results
 
 token = get_token()
-result = search_for_artist(token, "SZA")
+
+favorite_artist = input("Who is your favorite artist? ")
+result = search_for_artist(token, favorite_artist)
+
+
+# result = search_for_artist(token, "Drake")
+
 artist_id = result["id"]
 songs = get_songs_by_artist(token, artist_id)
 
 
 for idx, song in enumerate(songs):
     print(f"{idx + 1}. {song['name']}")
+
+    
+    
 
