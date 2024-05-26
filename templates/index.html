@@ -22,18 +22,32 @@
       
       
     <div class "b1">
-          <h4>   in the search bar enter your favorite artist. And we will expand on thier top songs </h4>
+          <h4>   In the search bar enter your favorite artist. And we will expand on thier top songs </h4>
     </div>
 
-        
-    <div class "b2">
-          <input type="text" id="artistInput" placeholder="Enter artist name" />
-                  <button id="searchButton">Search</button>
-                <div id="result"></div>
-    </div>
+    <div class="b2">
+      <form action="/process" method="POST">
+          <input type="text" id="artistInput" name="artistInput" placeholder="Enter artist name" />
+          <button type="submit" id="searchButton">Search</button>
+      </form>
+
+      
+  </div>
+
+   
 
 
     <div class "b3">
+      <div id="result">
+        {% if result %}
+            <h2>Top Tracks for {{ result['name'] }}</h2>
+            <ul>
+                {% for track in tracks %}
+                    <li>{{ track['name'] }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
 
     </div>  
     

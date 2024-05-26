@@ -59,7 +59,7 @@ def get_songs_by_artist(token, artist_id):
 token = get_token()
 
 favorite_artist = input("Who is your favorite artist? ")
-result = search_for_artist(token, favorite_artist)
+result = search_for_artist(token, "favorite_artist")
 
 
 # result = search_for_artist(token, "Drake")
