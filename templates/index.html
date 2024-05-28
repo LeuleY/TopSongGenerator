@@ -27,7 +27,7 @@
 
     <div class="b2">
       <form action="/process" method="POST">
-          <input type="text" id="artistInput" name="artistInput" placeholder="Enter artist name" />
+          <input type="text" id="artistInput" name="artistInput" placeholder="Enter artist name" required />
           <button type="submit" id="searchButton">Search</button>
       </form>
 
@@ -39,6 +39,9 @@
 
     <div class "b3">
       <div id="result">
+        {% if error_message %}
+                    <p style="color: red;">{{ error_message }}</p>
+                {% endif %}
         {% if result %}
             <h2>Top Tracks for {{ result['name'] }}</h2>
             <ul>

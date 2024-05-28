@@ -1,5 +1,5 @@
-from operator import index
 from flask import Flask, render_template, request
+from operator import index
 import base64
 import os
 from dotenv import load_dotenv
@@ -76,19 +76,13 @@ def process():
     if result:
         artist_id = result['id']
         tracks = get_songs_by_artist(token, artist_id)
-        return render_template('index.html', result=result, tracks=tracks)
+        return render_template('index.html', result=result, tracks=tracks, error_message=None)
     else:
-        return render_template('index.html', result=None, tracks=[])    
-    
-    
-    
+        error_message = "Oops! Are you sure that's your favorite artist? We couldn't find them."
 
-
- 
- 
- 
- 
- 
+        return render_template('index.html', result=None, tracks=[], error_message=error_message)    
+    
+    
  
 
 if __name__ == '__main__':
